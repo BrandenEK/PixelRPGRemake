@@ -1,4 +1,5 @@
 using PixelRPG.Framework;
+using PixelRPG.Input;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +22,13 @@ namespace PixelRPG.UI
         protected override void OnShow()
         {
             _acceptInput = false;
+            Core.InputHandler.AddInputBlock(deathBlock);
             StartCoroutine(FadeIn());
+        }
+
+        protected override void OnHide()
+        {
+            Core.InputHandler.RemoveInputBlock(deathBlock);
         }
 
         private IEnumerator FadeIn()
@@ -42,11 +49,16 @@ namespace PixelRPG.UI
 
         private void Update()
         {
-            if (_acceptInput && Input.anyKeyDown)
+            if (_acceptInput && UnityEngine.Input.anyKeyDown)
             {
                 Debug.Log("Respawning...");
                 Core.PlayerSpawner.SpawnFromLastSave();
             }
         }
+
+        private readonly InputBlock deathBlock = new InputBlock(new InputType[]
+        {
+            InputType.Any
+        });
     }
 }

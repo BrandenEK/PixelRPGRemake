@@ -1,4 +1,5 @@
 using PixelRPG.Framework;
+using PixelRPG.Input;
 using UnityEngine;
 
 namespace PixelRPG.UI
@@ -33,18 +34,18 @@ namespace PixelRPG.UI
         protected override void OnShow()
         {
             Time.timeScale = 0;
-            Core.PlayerSpawner.PlayerInput.AddInputBlock("pause");
+            Core.InputHandler.AddInputBlock(pauseBlock);
         }
 
         protected override void OnHide()
         {
             Time.timeScale = 1;
-            Core.PlayerSpawner.PlayerInput.RemoveInputBlock("pause");
+            Core.InputHandler.RemoveInputBlock(pauseBlock);
         }
 
         protected override void OnUpdate()
         {
-            if (Input.GetButtonDown("Pause"))
+            if (Core.InputHandler.GetButtonDown(InputType.Pause))
             {
                 if (IsOpen)
                     UnpauseGame();
@@ -52,5 +53,10 @@ namespace PixelRPG.UI
                     PauseGame();
             }
         }
+
+        private readonly InputBlock pauseBlock = new InputBlock(new InputType[]
+        {
+            InputType.Attack, InputType.Interact, InputType.MoveHorizontal, InputType.MoveVertical,
+        });
     }
 }

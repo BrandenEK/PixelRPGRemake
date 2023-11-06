@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using PixelRPG.Framework;
 using UnityEngine;
 
 namespace PixelRPG.Player
@@ -21,15 +21,12 @@ namespace PixelRPG.Player
         // Gather input
         private void Update()
         {
-            if (_inputBlocks.Count > 0)
-                return;
-
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+            float x = Core.InputHandler.GetAxis(Input.InputType.MoveHorizontal);
+            float y = Core.InputHandler.GetAxis(Input.InputType.MoveVertical);
 
             _movementAxis = new Vector2(attack.IsAttacking ? 0 : x, attack.IsAttacking ? 0 : y).normalized;
-            _attackButton = Input.GetButtonDown("Attack");
-            _interactButton = Input.GetButtonDown("Interact");
+            _attackButton = Core.InputHandler.GetButtonDown(Input.InputType.Attack);
+            _interactButton = Core.InputHandler.GetButtonDown(Input.InputType.Interact);
 
             _orientationRotater.RotateInput(_movementAxis);
         }
@@ -45,25 +42,6 @@ namespace PixelRPG.Player
         public void SetOrientation(Orientation orientation)
         {
             _orientationRotater.Rotate(orientation);
-        }
-
-        private readonly List<string> _inputBlocks = new();
-
-        public void AddInputBlock(string name)
-        {
-            Debug.Log($"Adding input block: {name} ({_inputBlocks.Count})");
-            if (!_inputBlocks.Contains(name))
-                _inputBlocks.Add(name);
-
-            _movementAxis = Vector2.zero;
-            _attackButton = false;
-            _interactButton = false;
-        }
-
-        public void RemoveInputBlock(string name)
-        {
-            Debug.Log($"Removing input block: {name} ({_inputBlocks.Count})");
-            _inputBlocks.Remove(name);
         }
 
         public Vector2 MovementAxis => _movementAxis;

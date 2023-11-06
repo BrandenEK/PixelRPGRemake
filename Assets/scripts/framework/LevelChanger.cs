@@ -1,3 +1,4 @@
+using PixelRPG.Input;
 using PixelRPG.Persistence;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace PixelRPG.Framework
         {
             Debug.Log("Changing level to " + levelName);
 
+            Core.InputHandler.AddInputBlock(fadeBlock);
             StoreLevelObjects();
             StartCoroutine(ChangeLevelCorroutine(levelName, _totalFadeTime, useFade));
         }
@@ -23,6 +25,7 @@ namespace PixelRPG.Framework
         {
             StartCoroutine(FadeIn(Color.black, _totalFadeTime));
             RetrieveLevelObjects();
+            Core.InputHandler.RemoveInputBlock(fadeBlock);
         }
 
         private IEnumerator ChangeLevelCorroutine(string levelName, float fadeTime, bool useFade)
@@ -116,5 +119,10 @@ namespace PixelRPG.Framework
 
         [SerializeField] float _totalFadeTime;
         [SerializeField] Image _fadeImage;
+
+        private readonly InputBlock fadeBlock = new InputBlock(new InputType[]
+        {
+            InputType.Any
+        });
     }
 }

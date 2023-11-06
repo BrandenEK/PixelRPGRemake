@@ -10,21 +10,11 @@ namespace PixelRPG.Player
         private int _currentHealth;
 
         private PlayerGraphics graphics;
-        private PlayerInput input;
 
         private void Start()
         {
             graphics = GetComponent<PlayerGraphics>();
-            input = GetComponent<PlayerInput>();
             FillHealth();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                TakeDamage(50);
-            }
         }
 
         public void TakeDamage(int damage)
@@ -45,7 +35,6 @@ namespace PixelRPG.Player
             }
 
             graphics.Die();
-            input.AddInputBlock("death");
             Core.UIDisplayer.ShowWindow(UI.WindowType.Death);
         }
 

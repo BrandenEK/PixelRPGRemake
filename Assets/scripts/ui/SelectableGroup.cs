@@ -24,8 +24,8 @@ namespace PixelRPG.UI
                 return;
             }
 
-            bool decrease = Input.GetKeyDown(_vertical ? KeyCode.W : KeyCode.A);
-            bool increase = Input.GetKeyDown(_vertical ? KeyCode.S : KeyCode.D);
+            bool decrease = UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.W : KeyCode.A);
+            bool increase = UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.S : KeyCode.D);
 
             if (decrease)
             {

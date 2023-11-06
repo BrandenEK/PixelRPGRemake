@@ -24,7 +24,7 @@ namespace PixelRPG.Framework
             Cursor.visible = false;
             _instance = this;
 
-            _systems = new GameSystem[7];
+            _systems = new GameSystem[8];
             _systems[0] = PlayerSpawner = GetComponent<PlayerSpawner>();
             _systems[1] = LevelChanger = GetComponent<LevelChanger>();
             _systems[2] = EnemySpawner = GetComponent<EnemySpawner>();
@@ -32,6 +32,7 @@ namespace PixelRPG.Framework
             _systems[4] = InventoryStorer = GetComponent<InventoryStorer>();
             _systems[5] = DataSaver = GetComponent<DataSaver>();
             _systems[6] = StateChanger = GetComponent<StateChanger>();
+            _systems[7] = InputHandler = GetComponent<InputHandler>();
             Initialize();
         }
 
@@ -106,6 +107,7 @@ namespace PixelRPG.Framework
 
         public static DataSaver DataSaver { get; private set; }
         public static EnemySpawner EnemySpawner { get; private set; }
+        public static InputHandler InputHandler { get; private set; }
         public static InventoryStorer InventoryStorer { get; private set; }
         public static LevelChanger LevelChanger { get; private set; }
         public static PlayerSpawner PlayerSpawner { get; private set; }
