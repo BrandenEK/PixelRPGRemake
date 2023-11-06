@@ -5,6 +5,7 @@ namespace PixelRPG.UI
     public abstract class BaseWindow : MonoBehaviour
     {
         private bool _isOpen;
+        protected bool IsOpen => _isOpen;
 
         public void ShowWindow()
         {
@@ -26,8 +27,12 @@ namespace PixelRPG.UI
             }
         }
 
+        public void UpdateWindow() => OnUpdate();
+
         protected virtual void OnShow() { }
 
         protected virtual void OnHide() { }
+
+        protected virtual void OnUpdate() { }
     }
 }

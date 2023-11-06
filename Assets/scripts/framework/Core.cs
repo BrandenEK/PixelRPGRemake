@@ -20,6 +20,7 @@ namespace PixelRPG.Framework
             Debug.Log("Creating instance of Core");
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
             Cursor.visible = false;
             _instance = this;
 
@@ -77,6 +78,24 @@ namespace PixelRPG.Framework
                 try
                 {
                     system.OnSceneLoaded(scene.name);
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError($"[{system.GetType().Name}] Encountered error: {e.Message}\n{e.StackTrace}");
+                }
+            }
+        }
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+            if (scene.name == "MainMenu")
+                return;
+
+            foreach (var system in _systems)
+            {
+                try
+                {
+                    system.OnSceneUnloaded(scene.name);
                 }
                 catch (System.Exception e)
                 {

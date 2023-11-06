@@ -30,21 +30,32 @@ namespace PixelRPG.Framework
         public override void OnSceneLoaded(string sceneName)
         {
             EnableHud();
+        }
 
+        public override void OnSceneUnloaded(string sceneName)
+        {
             HideWindow(WindowType.Death);
             HideWindow(WindowType.Pause);
         }
 
-        public void ShowWindow(WindowType type)
+        public override void OnUpdate()
         {
-            BaseWindow window = GetWindowByType(type);
+            GetWindowByType(WindowType.Death).UpdateWindow();
+            GetWindowByType(WindowType.Pause).UpdateWindow();
+        }
+
+        public void ShowWindow(WindowType type) => ShowWindow(GetWindowByType(type));
+
+        public void ShowWindow(BaseWindow window)
+        {
             window.gameObject.SetActive(true);
             window.ShowWindow();
         }
 
-        public void HideWindow(WindowType type)
+        public void HideWindow(WindowType type) => HideWindow(GetWindowByType(type));
+
+        public void HideWindow(BaseWindow window)
         {
-            BaseWindow window = GetWindowByType(type);
             window.HideWindow();
             window.gameObject.SetActive(false);
         }

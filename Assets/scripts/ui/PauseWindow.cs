@@ -5,9 +5,14 @@ namespace PixelRPG.UI
 {
     public class PauseWindow : BaseWindow
     {
-        public void ResumeGame()
+        public void PauseGame()
         {
-            Core.StateChanger.UnpauseGame();
+            Core.UIDisplayer.ShowWindow(this);
+        }
+
+        public void UnpauseGame()
+        {
+            Core.UIDisplayer.HideWindow(this);
         }
 
         public void SaveAndQuit()
@@ -23,6 +28,31 @@ namespace PixelRPG.UI
         {
             Debug.Log("Returning to menu");
             Core.LevelChanger.ChangeLevel("MainMenu", false);
+        }
+
+        protected override void OnShow()
+        {
+            Time.timeScale = 0;
+            Core.PlayerSpawner.PlayerInput.AddInputBlock("pause");
+        }
+
+        protected override void OnHide()
+        {
+            Time.timeScale = 1;
+            Core.PlayerSpawner.PlayerInput.RemoveInputBlock("pause");
+        }
+
+        protected override void OnUpdate()
+        {
+            Debug.Log("Updating pause menu");
+
+            if (Input.GetButtonDown("Pause"))
+            {
+                if (IsOpen)
+                    UnpauseGame();
+                else
+                    PauseGame();
+            }
         }
     }
 }
