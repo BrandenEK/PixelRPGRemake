@@ -2074,7 +2074,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5791713373158570681}
         m_TargetAssemblyTypeName: PixelRPG.UI.PauseWindow, Assembly-CSharp
-        m_MethodName: ResumeGame
+        m_MethodName: UnpauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

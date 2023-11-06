@@ -11,6 +11,11 @@ namespace PixelRPG.UI
 
         private int _selectedIndex;
 
+        private void OnEnable()
+        {
+            _selectedIndex = 0;
+        }
+
         private void Update()
         {
             if (!IsElementSelected())

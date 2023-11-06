@@ -44,8 +44,6 @@ namespace PixelRPG.UI
 
         protected override void OnUpdate()
         {
-            Debug.Log("Updating pause menu");
-
             if (Input.GetButtonDown("Pause"))
             {
                 if (IsOpen)
