@@ -65,16 +65,5 @@ namespace PixelRPG.Framework
 
             Debug.Log("Reset game data!");
         }
-
-        public override void OnUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Core.LevelChanger.StoreLevelObjects();
-                SaveGame();
-                Core.LevelChanger.ChangeLevel("MainMenu", false);
-                Debug.Log("Save and quit to menu");
-            }
-        }
     }
 }
