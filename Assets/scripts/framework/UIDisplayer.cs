@@ -31,6 +31,7 @@ namespace PixelRPG.Framework
         public override void OnSceneLoaded(string sceneName)
         {
             EnableHud();
+            HideWindow(_mainMenuWindow);
         }
 
         public override void OnSceneUnloaded(string sceneName)
@@ -38,6 +39,12 @@ namespace PixelRPG.Framework
             HideWindow(_mainMenuWindow);
             HideWindow(_deathWindow);
             HideWindow(_pauseWindow);
+        }
+
+        public override void OnMenuLoaded()
+        {
+            DisableHud();
+            ShowWindow(WindowType.MainMenu);
         }
 
         public override void OnUpdate()

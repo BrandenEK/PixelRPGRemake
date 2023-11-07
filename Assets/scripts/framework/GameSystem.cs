@@ -12,5 +12,7 @@ namespace PixelRPG.Framework
         public virtual void OnSceneLoaded(string sceneName) { }
 
         public virtual void OnSceneUnloaded(string sceneName) { }
+
+        public virtual void OnMenuLoaded() { }
     }
 }

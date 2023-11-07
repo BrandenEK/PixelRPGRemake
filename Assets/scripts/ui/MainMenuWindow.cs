@@ -5,11 +5,6 @@ namespace PixelRPG.UI
 {
     public class MainMenuWindow : BaseWindow
     {
-        private void Start()
-        {
-            Core.UIDisplayer.DisableHud();
-        }
-
         public void NewGame()
         {
             Core.DataSaver.ResetGame();
