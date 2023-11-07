@@ -8,6 +8,7 @@ namespace PixelRPG.Framework
         [SerializeField] GameObject _interactPopup;
         [SerializeField] GameObject _hud;
 
+        [SerializeField] MainMenuWindow _mainMenuWindow;
         [SerializeField] DeathWindow _deathWindow;
         [SerializeField] PauseWindow _pauseWindow;
 
@@ -30,18 +31,27 @@ namespace PixelRPG.Framework
         public override void OnSceneLoaded(string sceneName)
         {
             EnableHud();
+            HideWindow(_mainMenuWindow);
         }
 
         public override void OnSceneUnloaded(string sceneName)
         {
-            HideWindow(WindowType.Death);
-            HideWindow(WindowType.Pause);
+            HideWindow(_mainMenuWindow);
+            HideWindow(_deathWindow);
+            HideWindow(_pauseWindow);
+        }
+
+        public override void OnMenuLoaded()
+        {
+            DisableHud();
+            ShowWindow(WindowType.MainMenu);
         }
 
         public override void OnUpdate()
         {
-            GetWindowByType(WindowType.Death).UpdateWindow();
-            GetWindowByType(WindowType.Pause).UpdateWindow();
+            _mainMenuWindow.UpdateWindow();
+            _deathWindow.UpdateWindow();
+            _pauseWindow.UpdateWindow();
         }
 
         public void ShowWindow(WindowType type) => ShowWindow(GetWindowByType(type));
@@ -64,6 +74,7 @@ namespace PixelRPG.Framework
         {
             return type switch
             {
+                WindowType.MainMenu => _mainMenuWindow,
                 WindowType.Death => _deathWindow,
                 WindowType.Pause => _pauseWindow,
                 _ => throw new System.Exception("Invalid window type!")

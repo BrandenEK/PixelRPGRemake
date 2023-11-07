@@ -71,14 +71,14 @@ namespace PixelRPG.Framework
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (scene.name == "MainMenu")
-                return;
-
             foreach (var system in _systems)
             {
                 try
                 {
-                    system.OnSceneLoaded(scene.name);
+                    if (scene.name == "MainMenu")
+                        system.OnMenuLoaded();
+                    else
+                        system.OnSceneLoaded(scene.name);
                 }
                 catch (System.Exception e)
                 {

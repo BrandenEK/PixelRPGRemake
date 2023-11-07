@@ -1,18 +1,10 @@
 using PixelRPG.Framework;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace PixelRPG.UI
 {
-    public class UIMainMenu : MonoBehaviour
+    public class MainMenuWindow : BaseWindow
     {
-        [SerializeField] GameObject _newGameButton;
-
-        private void Start()
-        {
-            Core.UIDisplayer.DisableHud();
-        }
-
         public void NewGame()
         {
             Core.DataSaver.ResetGame();
