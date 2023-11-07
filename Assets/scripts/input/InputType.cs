@@ -8,6 +8,8 @@ namespace PixelRPG.Input
 
         Pause,
 
+        UIConfirm,
+
         MoveHorizontal,
         MoveVertical,
         UIHorizontal,

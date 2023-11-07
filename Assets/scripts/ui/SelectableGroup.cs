@@ -1,59 +1,48 @@
+using PixelRPG.Framework;
+using PixelRPG.Input;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace PixelRPG.UI
 {
     public class SelectableGroup : MonoBehaviour
     {
-        [SerializeField] Selectable[] _selectables;
+        [SerializeField] SelectableText[] _selectables;
         [SerializeField] bool _vertical;
 
         private int _selectedIndex;
+        private SelectableText SelectedElement => _selectables[_selectedIndex];
 
         private void OnEnable()
         {
-            _selectedIndex = 0;
+            foreach (var selectable in _selectables)
+                selectable.OnUnselect();
+
+            _selectables[_selectedIndex = 0].OnSelect();
         }
 
         private void Update()
         {
-            if (!IsElementSelected())
-            {
-                EventSystem.current.SetSelectedGameObject(_selectables[_selectedIndex].gameObject);
-                return;
-            }
+            if (UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.W : KeyCode.A))
+                ChangeSelection(-1);
+            if (UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.S : KeyCode.D))
+                ChangeSelection(1);
 
-            bool decrease = UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.W : KeyCode.A);
-            bool increase = UnityEngine.Input.GetKeyDown(_vertical ? KeyCode.S : KeyCode.D);
-
-            if (decrease)
-            {
-                _selectedIndex--;
-                if (_selectedIndex < 0)
-                    _selectedIndex = _selectables.Length - 1;
-            }
-            else if (increase)
-            {
-                _selectedIndex++;
-                if (_selectedIndex >= _selectables.Length)
-                    _selectedIndex = 0;
-            }
-
-            EventSystem.current.SetSelectedGameObject(_selectables[_selectedIndex].gameObject);
+            if (Core.InputHandler.GetButtonDown(InputType.UIConfirm))
+                SelectedElement.ClickEvent();
         }
 
-        private bool IsElementSelected()
+        private void ChangeSelection(int diff)
         {
-            GameObject obj = EventSystem.current.currentSelectedGameObject;
+            SelectedElement.OnUnselect();
 
-            foreach (var selectable in _selectables)
-            {
-                if (selectable.gameObject == obj)
-                    return true;
-            }
+            _selectedIndex += diff;
 
-            return false;
+            if (_selectedIndex < 0)
+                _selectedIndex = _selectables.Length - 1;
+            else if (_selectedIndex >= _selectables.Length)
+                _selectedIndex = 0;
+
+            SelectedElement.OnSelect();
         }
     }
 }
