@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelRPG.UI
+namespace PixelRPG.UI.Selectables
 {
-    public class SelectableText : MonoBehaviour
+    public class SelectableText : SelectableOption
     {
         private TMP_Text text;
         private TMP_Text TextElement
@@ -19,17 +19,17 @@ namespace PixelRPG.UI
 
         [SerializeField] UnityEvent onClick;
 
-        public void OnSelect()
+        public override void OnSelect()
         {
             TextElement.color = SELECTED_COLOR;
         }
 
-        public void OnUnselect()
+        public override void OnDeselect()
         {
             TextElement.color = NORMAL_COLOR;
         }
 
-        public void ClickEvent()
+        public override void OnClick()
         {
             onClick?.Invoke();
         }

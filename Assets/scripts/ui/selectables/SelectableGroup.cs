@@ -2,20 +2,20 @@ using PixelRPG.Framework;
 using PixelRPG.Input;
 using UnityEngine;
 
-namespace PixelRPG.UI
+namespace PixelRPG.UI.Selectables
 {
     public class SelectableGroup : MonoBehaviour
     {
-        [SerializeField] SelectableText[] _selectables;
+        [SerializeField] SelectableOption[] _selectables;
         [SerializeField] bool _vertical;
 
         private int _selectedIndex;
-        private SelectableText SelectedElement => _selectables[_selectedIndex];
+        private SelectableOption SelectedElement => _selectables[_selectedIndex];
 
         private void OnEnable()
         {
             foreach (var selectable in _selectables)
-                selectable.OnUnselect();
+                selectable.OnDeselect();
 
             _selectables[_selectedIndex = 0].OnSelect();
         }
@@ -28,12 +28,12 @@ namespace PixelRPG.UI
                 ChangeSelection(1);
 
             if (Core.InputHandler.GetButtonDown(InputType.UIConfirm))
-                SelectedElement.ClickEvent();
+                SelectedElement.OnClick();
         }
 
         private void ChangeSelection(int diff)
         {
-            SelectedElement.OnUnselect();
+            SelectedElement.OnDeselect();
 
             _selectedIndex += diff;
 
