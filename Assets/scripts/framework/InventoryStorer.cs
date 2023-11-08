@@ -1,5 +1,8 @@
+using PixelRPG.Inventory;
 using PixelRPG.Persistence;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace PixelRPG.Framework
 {
@@ -10,7 +13,17 @@ namespace PixelRPG.Framework
         private int _currentKeys;
 
         public int CurrentWeapon => _weaponLevel;
+        public EquipmentItem CurrentWeaponItem => _items["WE0" + (_weaponLevel + 1)];
+
         public int CurrentArmor => _armorLevel;
+        public EquipmentItem CurrentArmorItem => _items["AM0" + (_armorLevel + 1)];
+
+        private readonly Dictionary<string, EquipmentItem> _items = new();
+
+        public override void OnInitialize()
+        {
+            LoadAllItems();
+        }
 
         // Weapon and armor
 
@@ -33,6 +46,19 @@ namespace PixelRPG.Framework
         public void UseKey() => _currentKeys = Math.Max(_currentKeys - 1, 0);
 
         public int NumberOfKeys => _currentKeys;
+
+        // Asset loading
+
+        private void LoadAllItems()
+        {
+            foreach (var item in Resources.LoadAll<EquipmentItem>("Inventory"))
+            {
+                Debug.Log(item.name);
+                _items.Add(item.name, item);
+            }
+        }
+
+        public EquipmentItem GetEquipmentItem(string id) => _items[id];
 
         // Persistence
 

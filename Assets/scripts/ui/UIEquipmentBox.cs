@@ -23,16 +23,19 @@ namespace PixelRPG.UI
             switch (_equipmentType)
             {
                 case 0:
-
-                    text.text = "Lvl: " + (Core.InventoryStorer.CurrentWeapon + 1);
+                    var weapon = Core.InventoryStorer.CurrentWeaponItem;
+                    icon.sprite = weapon.icon;
+                    text.text = weapon.displayName;
                     break;
                 case 1:
-
-                    text.text = "Lvl: " + (Core.InventoryStorer.CurrentArmor + 1);
+                    var armor = Core.InventoryStorer.CurrentArmorItem;
+                    icon.sprite = armor.icon;
+                    text.text = armor.displayName;
                     break;
                 case 2:
-
-                    text.text = "x" + Core.InventoryStorer.NumberOfKeys;
+                    var key = Core.InventoryStorer.GetEquipmentItem("KEY");
+                    icon.sprite = key.icon;
+                    text.text = "x " + Core.InventoryStorer.NumberOfKeys;
                     break;
                 default:
                     throw new System.Exception("Invalid equipment type!");
