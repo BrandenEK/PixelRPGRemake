@@ -53,9 +53,9 @@ namespace PixelRPG.Framework
         {
             foreach (var item in Resources.LoadAll<EquipmentItem>("Inventory"))
             {
-                Debug.Log(item.name);
                 _items.Add(item.name, item);
             }
+            Debug.Log($"Loaded {_items.Count} equipment items!");
         }
 
         public EquipmentItem GetEquipmentItem(string id) => _items[id];
