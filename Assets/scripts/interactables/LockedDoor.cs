@@ -1,3 +1,4 @@
+using PixelRPG.Framework;
 using PixelRPG.Persistence;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace PixelRPG.Interactables
 
         private bool _unlocked;
 
-        public bool IsInteractable => false;
+        public bool IsInteractable => Core.InventoryStorer.NumberOfKeys > 0;
 
         public Vector3 PopupPosition => transform.position;
 
@@ -32,7 +33,7 @@ namespace PixelRPG.Interactables
 
         public void Interact()
         {
-            // Check for keys first
+            Core.InventoryStorer.UseKey();
             Unlock();
         }
 

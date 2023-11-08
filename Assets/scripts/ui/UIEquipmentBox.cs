@@ -32,7 +32,7 @@ namespace PixelRPG.UI
                     break;
                 case 2:
 
-                    text.text = "x" + 0;
+                    text.text = "x" + Core.InventoryStorer.NumberOfKeys;
                     break;
                 default:
                     throw new System.Exception("Invalid equipment type!");

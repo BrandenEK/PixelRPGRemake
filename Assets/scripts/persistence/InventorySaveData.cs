@@ -5,5 +5,6 @@ namespace PixelRPG.Persistence
     {
         public int weaponLevel;
         public int armorLevel;
+        public int currentKeys;
     }
 }

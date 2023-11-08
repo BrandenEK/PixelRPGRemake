@@ -1,4 +1,5 @@
 using PixelRPG.Persistence;
+using System;
 
 namespace PixelRPG.Framework
 {
@@ -6,9 +7,12 @@ namespace PixelRPG.Framework
     {
         private int _weaponLevel;
         private int _armorLevel;
+        private int _currentKeys;
 
         public int CurrentWeapon => _weaponLevel;
         public int CurrentArmor => _armorLevel;
+
+        // Weapon and armor
 
         public void UpgradeWeapon()
         {
@@ -22,12 +26,23 @@ namespace PixelRPG.Framework
             OnArmorUpgraded?.Invoke(_armorLevel);
         }
 
+        // Keys
+
+        public void ObtainKey() => _currentKeys++;
+
+        public void UseKey() => _currentKeys = Math.Max(_currentKeys - 1, 0);
+
+        public int NumberOfKeys => _currentKeys;
+
+        // Persistence
+
         public SaveData SaveData()
         {
             return new InventorySaveData()
             {
                 weaponLevel = _weaponLevel,
-                armorLevel = _armorLevel
+                armorLevel = _armorLevel,
+                currentKeys = _currentKeys,
             };
         }
 
@@ -36,12 +51,14 @@ namespace PixelRPG.Framework
             var inventoryData = data as InventorySaveData;
             _weaponLevel = inventoryData.weaponLevel;
             _armorLevel = inventoryData.armorLevel;
+            _currentKeys = inventoryData.currentKeys;
         }
 
         public void ResetData()
         {
             _weaponLevel = 0;
             _armorLevel = 0;
+            _currentKeys = 0;
         }
 
         public delegate void WeaponDelegate(int level);
