@@ -81,7 +81,7 @@ namespace PixelRPG.Framework
 
         public void ResetData()
         {
-            _lastScene = "South";
+            _lastScene = "Z0101";
             _lastDoor = "Start";
         }
 
