@@ -6,7 +6,8 @@ namespace PixelRPG.Interactables
 {
     public class Chest : MonoBehaviour, IInteractable, IPersistentObject
     {
-        [SerializeField] private int _sceneIndex;
+        [SerializeField] int _sceneIndex;
+        [SerializeField] ChestRewardType _reward;
 
         private bool _opened;
 
@@ -31,7 +32,18 @@ namespace PixelRPG.Interactables
 
         private void GiveReward()
         {
-            Core.InventoryStorer.UpgradeWeapon();
+            switch (_reward)
+            {
+                case ChestRewardType.Weapon:
+                    Core.InventoryStorer.UpgradeWeapon();
+                    break;
+                case ChestRewardType.Armor:
+                    Core.InventoryStorer.UpgradeArmor();
+                    break;
+                case ChestRewardType.Key:
+                    Core.InventoryStorer.ObtainKey();
+                    break;
+            }
         }
 
         public bool CurrentStatus
@@ -53,5 +65,12 @@ namespace PixelRPG.Interactables
         public bool IsInteractable => true;
 
         public int SceneIndex => _sceneIndex;
+
+        public enum ChestRewardType
+        {
+            Weapon,
+            Armor,
+            Key,
+        }
     }
 }
