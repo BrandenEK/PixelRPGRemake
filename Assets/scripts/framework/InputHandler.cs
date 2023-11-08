@@ -11,15 +11,21 @@ namespace PixelRPG.Framework
 
         public void AddInputBlock(InputBlock block)
         {
-            Debug.Log($"Adding input block: {_inputBlocks.Count}");
             if (!_inputBlocks.Contains(block))
                 _inputBlocks.Add(block);
+            Debug.Log($"Adding input block: {_inputBlocks.Count}");
         }
 
         public void RemoveInputBlock(InputBlock block)
         {
-            Debug.Log($"Removing input block: {_inputBlocks.Count}");
             _inputBlocks.Remove(block);
+            Debug.Log($"Removing input block: {_inputBlocks.Count}");
+        }
+
+        public override void OnMenuLoaded()
+        {
+            // Clear all input blocks on menu
+            _inputBlocks.Clear();
         }
 
         public bool GetButton(InputType input)
