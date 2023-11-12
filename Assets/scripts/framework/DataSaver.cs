@@ -10,6 +10,8 @@ namespace PixelRPG.Framework
     {
         private string SaveFilePath => Application.persistentDataPath + "/progress.bin";
 
+        public bool SaveFileExists => File.Exists(SaveFilePath);
+
         public void SaveGame()
         {
             // Add save data from each persistent manager to list
@@ -64,6 +66,12 @@ namespace PixelRPG.Framework
             }
 
             Debug.Log("Reset game data!");
+        }
+
+        public void DeleteSaveFile()
+        {
+            File.Delete(SaveFilePath);
+            Debug.Log("Deleted save file!");
         }
     }
 }

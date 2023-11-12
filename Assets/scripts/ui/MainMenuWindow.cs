@@ -13,6 +13,12 @@ namespace PixelRPG.UI
 
         public void ContinueGame()
         {
+            if (!Core.DataSaver.SaveFileExists)
+            {
+                Debug.LogWarning("No save file exists!");
+                return;
+            }
+
             Core.DataSaver.LoadGame();
             Core.PlayerSpawner.SpawnFromLastSave();
         }
