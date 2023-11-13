@@ -63,6 +63,11 @@ namespace PixelRPG.Framework
             Core.LevelChanger.ChangeLevel(_lastScene, false);
         }
 
+        public void RestAtCampfire()
+        {
+            PlayerHealth.FillHealth();
+        }
+
         public SaveData SaveData()
         {
             return new SpawnSaveData()

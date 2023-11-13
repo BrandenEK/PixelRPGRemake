@@ -1,3 +1,4 @@
+using PixelRPG.Framework;
 using PixelRPG.Persistence;
 using UnityEngine;
 
@@ -30,10 +31,13 @@ namespace PixelRPG.Interactables
 
         public void Interact()
         {
-            _isLit = true;
-            ShowFire(true);
-            // Refill player health
-            // Set save spawn
+            if (!_isLit)
+            {
+                _isLit = true;
+                ShowFire(true);
+            }
+
+            Core.PlayerSpawner.RestAtCampfire();
         }
 
         private void ShowFire(bool start)
