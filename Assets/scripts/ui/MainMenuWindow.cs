@@ -8,7 +8,7 @@ namespace PixelRPG.UI
         public void NewGame()
         {
             Core.DataSaver.ResetGame();
-            Core.PlayerSpawner.SpawnFromLastSave();
+            Core.PlayerSpawner.SpawnFromLastCampfire();
         }
 
         public void ContinueGame()
@@ -20,7 +20,7 @@ namespace PixelRPG.UI
             }
 
             Core.DataSaver.LoadGame();
-            Core.PlayerSpawner.SpawnFromLastSave();
+            Core.PlayerSpawner.SpawnFromLastCampfire();
         }
 
         public void QuitGame()

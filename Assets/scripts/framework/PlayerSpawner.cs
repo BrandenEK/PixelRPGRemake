@@ -1,6 +1,8 @@
+using PixelRPG.Interactables;
 using PixelRPG.Persistence;
 using PixelRPG.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PixelRPG.Framework
 {
@@ -22,19 +24,25 @@ namespace PixelRPG.Framework
             PlayerHealth = PlayerTransform.GetComponent<PlayerHealth>();
 
             // Set spawn properties
-            var door = FindDoorToSpawnFrom();
-            if (door == null)
-                return;
+            Vector3 position;
+            Orientation orientation;
 
-            PlayerTransform.position = door.position;
-            PlayerInput.SetOrientation(door.orientation);
-            PlayerGraphics.SetOrientation(door.orientation);
+            if (DoorIdToSpawnFrom == "CAMPFIRE")
+            {
+                var fire = FindObjectOfType<Campfire>();
+                position = fire?.transform.position + Vector3.down * 2f ?? Vector3.zero;
+                orientation = Orientation.Up;
+            }
+            else
+            {
+                var door = FindDoorToSpawnFrom();
+                position = door?.position ?? Vector3.zero;
+                orientation = door?.orientation ?? Orientation.Down;
+            }
 
-            // Update save data
-            _lastScene = sceneName;
-            _lastDoor = door.id;
-
-            OnPlayerSpawn?.Invoke();
+            PlayerTransform.position = position;
+            PlayerInput.SetOrientation(orientation);
+            PlayerGraphics.SetOrientation(orientation);
         }
 
         private Door FindDoorToSpawnFrom()
@@ -57,37 +65,35 @@ namespace PixelRPG.Framework
             return doors[0];
         }
 
-        public void SpawnFromLastSave()
+        public void SpawnFromLastCampfire()
         {
-            DoorIdToSpawnFrom = _lastDoor;
-            Core.LevelChanger.ChangeLevel(_lastScene, false);
+            DoorIdToSpawnFrom = "CAMPFIRE";
+            Core.LevelChanger.ChangeLevel(_savedSpawnRoom, false);
         }
 
         public void RestAtCampfire()
         {
             PlayerHealth.FillHealth();
+            _savedSpawnRoom = SceneManager.GetActiveScene().name;
         }
 
         public SaveData SaveData()
         {
             return new SpawnSaveData()
             {
-                spawnLevel = _lastScene,
-                spawnDoor = _lastDoor
+                spawnRoom = _savedSpawnRoom
             };
         }
 
         public void LoadData(SaveData data)
         {
             var spawnData = data as SpawnSaveData;
-            _lastScene = spawnData.spawnLevel;
-            _lastDoor = spawnData.spawnDoor;
+            _savedSpawnRoom = spawnData.spawnRoom;
         }
 
         public void ResetData()
         {
-            _lastScene = "Z0101";
-            _lastDoor = "Start";
+            _savedSpawnRoom = "Z0101";
         }
 
         [SerializeField] GameObject _playerPrefab;
@@ -101,8 +107,7 @@ namespace PixelRPG.Framework
 
         public string DoorIdToSpawnFrom { get; set; } = string.Empty;
 
-        private string _lastScene;
-        private string _lastDoor;
+        private string _savedSpawnRoom;
 
         public delegate void SpawnDelegate();
         public static event SpawnDelegate OnPlayerSpawn;

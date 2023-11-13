@@ -52,7 +52,7 @@ namespace PixelRPG.UI
             if (_acceptInput && UnityEngine.Input.anyKeyDown)
             {
                 Debug.Log("Respawning...");
-                Core.PlayerSpawner.SpawnFromLastSave();
+                Core.PlayerSpawner.SpawnFromLastCampfire();
             }
         }
 
