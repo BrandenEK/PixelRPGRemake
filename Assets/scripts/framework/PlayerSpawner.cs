@@ -10,6 +10,7 @@ namespace PixelRPG.Framework
     {
         public override void OnInitialize()
         {
+            Campfire.OnRestAtCampfire += UpdateSpawnCampfire;
             DoorIdToSpawnFrom = _initialDoorId;
         }
 
@@ -74,9 +75,8 @@ namespace PixelRPG.Framework
             Core.LevelChanger.ChangeLevel(_savedSpawnRoom, false);
         }
 
-        public void RestAtCampfire()
+        public void UpdateSpawnCampfire()
         {
-            PlayerHealth.FillHealth();
             _savedSpawnRoom = SceneManager.GetActiveScene().name;
         }
 

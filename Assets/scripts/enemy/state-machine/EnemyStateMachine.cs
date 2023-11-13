@@ -7,12 +7,12 @@ namespace PixelRPG.Enemy.StateMachine
         private BaseState[] _states;
         private BaseState _currentState;
 
-        private EnemySpawnPoint spawnPoint;
 
         public Transform Transform { get; private set; }
         public EnemyGraphics Graphics { get; private set; }
         public EnemyPhsyics Physics { get; private set; }
         public RotateToOrientation Orientation { get; private set; }
+        public EnemySpawnPoint SpawnPoint { get; private set; }
 
         public EnemyData data;
 
@@ -22,12 +22,11 @@ namespace PixelRPG.Enemy.StateMachine
             Graphics = GetComponent<EnemyGraphics>();
             Physics = GetComponent<EnemyPhsyics>();
             Orientation = GetComponentInChildren<RotateToOrientation>();
-
-            spawnPoint = GetComponentInParent<EnemySpawnPoint>();
+            SpawnPoint = GetComponentInParent<EnemySpawnPoint>();
 
             _states = new BaseState[]
             {
-                new PatrollingState(this, spawnPoint.wayPoints),
+                new PatrollingState(this, SpawnPoint.wayPoints),
                 new ChasingState(this),
                 new AttackingState(this),
                 new DeadState(this),

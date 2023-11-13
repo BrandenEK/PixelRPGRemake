@@ -37,7 +37,9 @@ namespace PixelRPG.Interactables
                 ShowFire(true);
             }
 
-            Core.PlayerSpawner.RestAtCampfire();
+            Debug.Log("Resting at campfire");
+            Core.PlayerSpawner.PlayerHealth.FillHealth();
+            OnRestAtCampfire?.Invoke();
         }
 
         private void ShowFire(bool start)
@@ -56,5 +58,8 @@ namespace PixelRPG.Interactables
 
         private ParticleSystem fireSystem;
         private ParticleSystem smokeSystem;
+
+        public delegate void CampfireDelegate();
+        public static event CampfireDelegate OnRestAtCampfire;
     }
 }

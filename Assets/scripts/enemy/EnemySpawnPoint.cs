@@ -10,7 +10,6 @@ namespace PixelRPG
 
         public GameObject SpawnEnemy()
         {
-            Debug.Log("Spawning enemy");
             return Instantiate(enemyToSpawn, wayPoints[0], Quaternion.identity, transform);
         }
 

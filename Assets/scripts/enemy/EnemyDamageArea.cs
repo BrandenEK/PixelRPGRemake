@@ -1,5 +1,6 @@
 using PixelRPG.Damage;
 using PixelRPG.Enemy.StateMachine;
+using PixelRPG.Framework;
 using UnityEngine;
 
 namespace PixelRPG.Enemy
@@ -19,6 +20,7 @@ namespace PixelRPG.Enemy
                 return;
 
             Debug.Log("Enemy taking damage");
+            Core.EnemySpawner.AddKilledEnemy(stateMachine.SpawnPoint);
             stateMachine.ChangeState(3);
         }
     }

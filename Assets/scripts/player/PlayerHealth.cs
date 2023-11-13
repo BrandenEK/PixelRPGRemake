@@ -33,6 +33,7 @@ namespace PixelRPG.Player
                 collider.enabled = false;
             }
 
+            OnPlayerDeath?.Invoke();
             graphics.Die();
             Core.UIDisplayer.ShowWindow(UI.WindowType.Death);
         }
@@ -51,5 +52,8 @@ namespace PixelRPG.Player
         public int MaxHealth => _maxHealth;
 
         public float HealthPercentage => (float)_currentHealth / _maxHealth;
+
+        public delegate void PlayerHealthDelegate();
+        public static event PlayerHealthDelegate OnPlayerDeath;
     }
 }
