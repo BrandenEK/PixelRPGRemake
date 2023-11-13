@@ -14,7 +14,6 @@ namespace PixelRPG.Player
         private void Start()
         {
             graphics = GetComponent<PlayerGraphics>();
-            FillHealth();
         }
 
         public void TakeDamage(int damage)
@@ -42,6 +41,14 @@ namespace PixelRPG.Player
         {
             _currentHealth = _maxHealth;
         }
+
+        public void SetHealthOnStart(int health)
+        {
+            _currentHealth = Mathf.Max(Mathf.Min(health, _maxHealth), 0);
+        }
+
+        public int CurrentHealth => _currentHealth;
+        public int MaxHealth => _maxHealth;
 
         public float HealthPercentage => (float)_currentHealth / _maxHealth;
     }

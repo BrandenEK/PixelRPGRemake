@@ -32,12 +32,14 @@ namespace PixelRPG.Framework
                 var fire = FindObjectOfType<Campfire>();
                 position = fire?.transform.position + Vector3.down * 2f ?? Vector3.zero;
                 orientation = Orientation.Up;
+                PlayerHealth.FillHealth();
             }
             else
             {
                 var door = FindDoorToSpawnFrom();
                 position = door?.position ?? Vector3.zero;
                 orientation = door?.orientation ?? Orientation.Down;
+                PlayerHealth.SetHealthOnStart(HealthToSpawnWith);
             }
 
             PlayerTransform.position = position;
@@ -67,6 +69,7 @@ namespace PixelRPG.Framework
 
         public void SpawnFromLastCampfire()
         {
+            Debug.Log("Resting at campfire");
             DoorIdToSpawnFrom = "CAMPFIRE";
             Core.LevelChanger.ChangeLevel(_savedSpawnRoom, false);
         }
@@ -106,7 +109,8 @@ namespace PixelRPG.Framework
         public PlayerHealth PlayerHealth { get; private set; }
 
         public string DoorIdToSpawnFrom { get; set; } = string.Empty;
-
+        public int HealthToSpawnWith { get; set; } = 1000;
+        
         private string _savedSpawnRoom;
 
         public delegate void SpawnDelegate();

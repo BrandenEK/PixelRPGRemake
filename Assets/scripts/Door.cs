@@ -20,6 +20,7 @@ namespace PixelRPG
                 return;
 
             Core.PlayerSpawner.DoorIdToSpawnFrom = otherId;
+            Core.PlayerSpawner.HealthToSpawnWith = Core.PlayerSpawner.PlayerHealth.CurrentHealth;
             Core.LevelChanger.ChangeLevel(otherScene, true);
         }
 
