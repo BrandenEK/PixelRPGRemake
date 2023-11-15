@@ -6,6 +6,10 @@ namespace PixelRPG.UI
 {
     public class PauseWindow : BaseWindow
     {
+        [SerializeField] GameObject[] _sections;
+
+        private int _currentSection = 0;
+
         public void PauseGame()
         {
             Core.UIDisplayer.ShowWindow(this);
@@ -35,6 +39,7 @@ namespace PixelRPG.UI
         {
             Time.timeScale = 0;
             Core.InputHandler.AddInputBlock(pauseBlock);
+            OpenSection(_currentSection);
         }
 
         protected override void OnHide()
@@ -52,6 +57,17 @@ namespace PixelRPG.UI
                 else
                     PauseGame();
             }
+        }
+
+        private void OpenSection(int section)
+        {
+            foreach (var obj in _sections)
+            {
+                obj.SetActive(false);
+            }
+
+            _currentSection = section;
+            _sections[section].SetActive(true);
         }
 
         private readonly InputBlock pauseBlock = new InputBlock(new InputType[]
