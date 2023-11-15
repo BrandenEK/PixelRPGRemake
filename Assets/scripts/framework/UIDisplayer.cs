@@ -45,6 +45,7 @@ namespace PixelRPG.Framework
         {
             DisableHud();
             ShowWindow(WindowType.MainMenu);
+            _pauseWindow.ResetCurrentSection();
         }
 
         public override void OnUpdate()

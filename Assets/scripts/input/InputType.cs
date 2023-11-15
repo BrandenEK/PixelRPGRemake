@@ -9,6 +9,8 @@ namespace PixelRPG.Input
         Pause,
 
         UIConfirm,
+        UITabLeft,
+        UITabRight,
 
         MoveHorizontal,
         MoveVertical,
