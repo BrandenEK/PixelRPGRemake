@@ -16,18 +16,21 @@ namespace PixelRPG.Interactables
         private Animator anim;
         private BoxCollider2D boxCollider;
         private Transform itemDisplay;
+        private AudioSource music;
 
         private void Awake()
         {
             anim = GetComponentInChildren<Animator>();
             boxCollider = GetComponent<BoxCollider2D>();
             itemDisplay = transform.GetChild(1);
+            music = GetComponentInChildren<AudioSource>();
         }
 
         public void Interact()
         {
             Debug.Log("Opening chest");
             anim.SetTrigger("triggering");
+            music.Play();
             boxCollider.enabled = false;
             _opened = true;
 

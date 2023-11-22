@@ -8,6 +8,7 @@ namespace PixelRPG.Player
         private PlayerInput input;
         private PlayerGraphics graphics;
         private RotateToOrientation orientation;
+        private AudioSource music;
 
         [SerializeField] LayerMask _damageLayer;
         [SerializeField] float _damageOffset;
@@ -21,6 +22,7 @@ namespace PixelRPG.Player
             input = GetComponent<PlayerInput>();
             graphics = GetComponent<PlayerGraphics>();
             orientation = GetComponentInChildren<RotateToOrientation>();
+            music = GetComponentInChildren<AudioSource>();
         }
 
         private void Update()
@@ -38,6 +40,7 @@ namespace PixelRPG.Player
             Debug.Log("Starting attack");
             _isAttacking = true;
             graphics.Attack();
+            music.Play();
 
             ApplyDamage();
         }

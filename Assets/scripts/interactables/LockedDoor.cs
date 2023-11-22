@@ -10,6 +10,7 @@ namespace PixelRPG.Interactables
 
         private SpriteRenderer sr;
         private BoxCollider2D col;
+        private AudioSource music;
 
         private bool _unlocked;
 
@@ -34,6 +35,7 @@ namespace PixelRPG.Interactables
         public void Interact()
         {
             Core.InventoryStorer.UseKey();
+            music.Play();
             Unlock();
         }
 
@@ -48,6 +50,7 @@ namespace PixelRPG.Interactables
         {
             sr = GetComponent<SpriteRenderer>();
             col = GetComponent<BoxCollider2D>();
+            music = GetComponentInChildren<AudioSource>();
         }
     }
 }
