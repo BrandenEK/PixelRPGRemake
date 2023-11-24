@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1231363324}
   - component: {fileID: 1231363323}
+  - component: {fileID: 1231363325}
   m_Layer: 0
   m_Name: LevelMusic
   m_TagString: Untagged
@@ -383,7 +384,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e0705914640f9314aa6fe76e97e6867f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
@@ -483,6 +484,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231363325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231363322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f163786cd6ae384d8b03588056425cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: caves
 --- !u!1 &1310637716
 GameObject:
   m_ObjectHideFlags: 0

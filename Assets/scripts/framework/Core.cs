@@ -24,7 +24,7 @@ namespace PixelRPG.Framework
             Cursor.visible = false;
             _instance = this;
 
-            _systems = new GameSystem[8];
+            _systems = new GameSystem[9];
             _systems[0] = PlayerSpawner = GetComponent<PlayerSpawner>();
             _systems[1] = LevelChanger = GetComponent<LevelChanger>();
             _systems[2] = EnemySpawner = GetComponent<EnemySpawner>();
@@ -33,6 +33,7 @@ namespace PixelRPG.Framework
             _systems[5] = DataSaver = GetComponent<DataSaver>();
             _systems[6] = StateChanger = GetComponent<StateChanger>();
             _systems[7] = InputHandler = GetComponent<InputHandler>();
+            _systems[8] = MusicPlayer = GetComponent<MusicPlayer>();
             Initialize();
         }
 
@@ -113,6 +114,7 @@ namespace PixelRPG.Framework
         public static PlayerSpawner PlayerSpawner { get; private set; }
         public static StateChanger StateChanger { get; private set; }
         public static UIDisplayer UIDisplayer { get; private set; }
+        public static MusicPlayer MusicPlayer { get; private set; }
 
         public static IEnumerable<GameSystem> AllSystems => _systems;
     }

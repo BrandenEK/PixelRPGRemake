@@ -17,6 +17,7 @@ namespace PixelRPG.Framework
             Debug.Log("Changing level to " + levelName);
 
             Core.InputHandler.AddInputBlock(fadeBlock);
+            Core.MusicPlayer.FakeStopMusic(); // Fix!
             StoreLevelObjects();
             StartCoroutine(ChangeLevelCorroutine(levelName, _totalFadeTime, useFade));
         }
