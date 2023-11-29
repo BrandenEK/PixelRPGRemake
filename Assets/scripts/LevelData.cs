@@ -18,9 +18,12 @@ namespace PixelRPG
             music.Play();
         }
 
-        public void FakeLevelUnloaded()
+        public void OnLevelUnloaded()
         {
             Core.MusicPlayer.StopBackgroundMusic(music.time);
         }
+
+        private void OnEnable() => LevelChanger.OnLevelUnloaded += OnLevelUnloaded;
+        private void OnDisable() => LevelChanger.OnLevelUnloaded -= OnLevelUnloaded;
     }
 }

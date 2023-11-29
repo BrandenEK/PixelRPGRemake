@@ -17,7 +17,6 @@ namespace PixelRPG.Framework
             Debug.Log("Changing level to " + levelName);
 
             Core.InputHandler.AddInputBlock(fadeBlock);
-            Core.MusicPlayer.FakeStopMusic(); // Fix!
             StoreLevelObjects();
             StartCoroutine(ChangeLevelCorroutine(levelName, _totalFadeTime, useFade));
         }
@@ -36,6 +35,7 @@ namespace PixelRPG.Framework
             else
                 yield return new WaitForEndOfFrame();
 
+            OnLevelUnloaded?.Invoke();
             SceneManager.LoadScene(levelName);
         }
 
@@ -125,5 +125,8 @@ namespace PixelRPG.Framework
         {
             InputType.Any
         });
+
+        public delegate void LevelDelegate();
+        public static event LevelDelegate OnLevelUnloaded;
     }
 }

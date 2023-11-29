@@ -26,12 +26,6 @@ namespace PixelRPG.Framework
             _lastMusicTime = time;
         }
 
-        public void FakeStopMusic()
-        {
-            // Do this better !!
-            FindObjectOfType<LevelData>()?.FakeLevelUnloaded();
-        }
-
         private string _lastMusicName = string.Empty;
         private float _lastMusicTime = 0;
     }
