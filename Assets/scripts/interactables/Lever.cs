@@ -10,6 +10,7 @@ namespace PixelRPG.Interactables
             Debug.Log("Toggling lever");
             anim.SetTrigger("triggering");
             _active = !_active;
+            OnLeverToggled?.Invoke(this, _active);
         }
 
         public Vector3 PopupPosition => transform.position + Vector3.up * 0.8f;
@@ -42,5 +43,8 @@ namespace PixelRPG.Interactables
         {
             anim = GetComponentInChildren<Animator>();
         }
+
+        public delegate void LeverDelegate(Lever lever, bool active);
+        public static event LeverDelegate OnLeverToggled;
     }
 }
