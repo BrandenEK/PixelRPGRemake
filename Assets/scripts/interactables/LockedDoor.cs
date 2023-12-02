@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Framework;
 using PixelRPG.Persistence;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace PixelRPG.Interactables
 
         private SpriteRenderer sr;
         private BoxCollider2D col;
-        private AudioSource music;
+        private SFXPlayer music;
 
         private bool _unlocked;
 
@@ -50,7 +51,7 @@ namespace PixelRPG.Interactables
         {
             sr = GetComponent<SpriteRenderer>();
             col = GetComponent<BoxCollider2D>();
-            music = GetComponentInChildren<AudioSource>();
+            music = GetComponentInChildren<SFXPlayer>();
         }
     }
 }

@@ -112,8 +112,5 @@ namespace PixelRPG.Framework
         public int HealthToSpawnWith { get; set; } = 1000;
         
         private string _savedSpawnRoom;
-
-        public delegate void SpawnDelegate();
-        public static event SpawnDelegate OnPlayerSpawn;
     }
 }

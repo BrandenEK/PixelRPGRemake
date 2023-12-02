@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Framework;
 using PixelRPG.Persistence;
 using System.Collections;
@@ -16,14 +17,14 @@ namespace PixelRPG.Interactables
         private Animator anim;
         private BoxCollider2D boxCollider;
         private Transform itemDisplay;
-        private AudioSource music;
+        private SFXPlayer music;
 
         private void Awake()
         {
             anim = GetComponentInChildren<Animator>();
             boxCollider = GetComponent<BoxCollider2D>();
             itemDisplay = transform.GetChild(1);
-            music = GetComponentInChildren<AudioSource>();
+            music = GetComponentInChildren<SFXPlayer>();
         }
 
         public void Interact()

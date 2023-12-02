@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Damage;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace PixelRPG.Player
         private PlayerInput input;
         private PlayerGraphics graphics;
         private RotateToOrientation orientation;
-        private AudioSource music;
+        private SFXPlayer music;
 
         [SerializeField] LayerMask _damageLayer;
         [SerializeField] float _damageOffset;
@@ -22,7 +23,7 @@ namespace PixelRPG.Player
             input = GetComponent<PlayerInput>();
             graphics = GetComponent<PlayerGraphics>();
             orientation = GetComponentInChildren<RotateToOrientation>();
-            music = GetComponentInChildren<AudioSource>();
+            music = GetComponentInChildren<SFXPlayer>();
         }
 
         private void Update()
