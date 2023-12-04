@@ -3580,27 +3580,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_172
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a61648755a16d243a7d1faea44f61ca
-      internalID: 1935921741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Tiles_173
       rect:
         serializedVersion: 2
@@ -3785,27 +3764,6 @@ TextureImporter:
       bones: []
       spriteID: 94f0e071b81c00e439c5635c36963d48
       internalID: 8603730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tiles_185
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57782aa82ec28074e8016c499372a146
-      internalID: 527239580
       vertices: []
       indices: 
       edges: []
@@ -4000,13 +3958,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_197
+      name: bars
       rect:
         serializedVersion: 2
         x: 144
-        y: 224
+        y: 232
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6029,7 +5987,6 @@ TextureImporter:
       Tiles_194: 191921266
       Tiles_195: 1908668260
       Tiles_196: 1226462455
-      Tiles_197: 72347656
       Tiles_198: 1652470201
       Tiles_199: -1251884582
       Tiles_2: 2097845171
@@ -6214,6 +6171,7 @@ TextureImporter:
       Tiles_97: 1663687902
       Tiles_98: 508807536
       Tiles_99: 1114652278
+      bars: 72347656
       bridge: 1309911456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

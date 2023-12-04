@@ -49,7 +49,7 @@ namespace PixelRPG.Interactables
 
         void Awake()
         {
-            sr = GetComponent<SpriteRenderer>();
+            sr = GetComponentInChildren<SpriteRenderer>();
             col = GetComponent<BoxCollider2D>();
             music = GetComponentInChildren<SFXPlayer>();
         }
