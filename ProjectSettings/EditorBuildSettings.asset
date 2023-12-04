@@ -23,4 +23,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/Testing.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/scenes/Z0401.unity
+    guid: f1d9912bbddf7e64f8dd25724ab706ed
+  - enabled: 1
+    path: Assets/scenes/Z0402.unity
+    guid: c6dfbc448dcab8746aff9deb53f9e2a3
+  - enabled: 1
+    path: Assets/scenes/Z0403.unity
+    guid: 8b4f4aab6e42380439810a0393ea7303
+  - enabled: 1
+    path: Assets/scenes/Z0404.unity
+    guid: 76b18ad444481f6418764e07474e0a38
+  - enabled: 1
+    path: Assets/scenes/Z0405.unity
+    guid: 760781b857c960a47bae18fe91254455
   m_configObjects: {}

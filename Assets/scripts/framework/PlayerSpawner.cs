@@ -96,7 +96,7 @@ namespace PixelRPG.Framework
 
         public void ResetData()
         {
-            _savedSpawnRoom = "Z0101";
+            _savedSpawnRoom = "Z0401";
         }
 
         [SerializeField] GameObject _playerPrefab;
