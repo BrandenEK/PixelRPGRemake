@@ -9,21 +9,6 @@ EditorBuildSettings:
     path: Assets/scenes/MainMenu.unity
     guid: f6ddaacc89881a44da030dd3224b38cd
   - enabled: 1
-    path: Assets/scenes/Z0101.unity
-    guid: 1873e2efc32dbf44d8f4a9043ec64f59
-  - enabled: 1
-    path: Assets/scenes/Z0102.unity
-    guid: bd6f865373e7c264498f90da57eb2ea0
-  - enabled: 1
-    path: Assets/scenes/Z0103.unity
-    guid: 89be518bab13bf640a6145403850ed4d
-  - enabled: 1
-    path: Assets/scenes/Z0201.unity
-    guid: e86dfdfdd41124a43ba7f3149cf083c6
-  - enabled: 1
-    path: Assets/scenes/Testing.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/scenes/Z0401.unity
     guid: f1d9912bbddf7e64f8dd25724ab706ed
   - enabled: 1
@@ -38,4 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/Z0405.unity
     guid: 760781b857c960a47bae18fe91254455
+  - enabled: 1
+    path: Assets/scenes/Z0501.unity
+    guid: 17756b8be7ee9b2429a8a1598fd4909d
+  - enabled: 1
+    path: Assets/scenes/Z0502.unity
+    guid: 3262b6ed71b655344acb941d128a8654
+  - enabled: 1
+    path: Assets/scenes/Z0503.unity
+    guid: 25ebf04a88f149b44a286ecea7c6697b
+  - enabled: 1
+    path: Assets/scenes/Z0504.unity
+    guid: a8ba7f3efb1c6c645bbbb17719a12b4f
+  - enabled: 1
+    path: Assets/scenes/Z0505.unity
+    guid: aed74acd9f5a1ba4988a94cbb8c230e7
+  - enabled: 1
+    path: Assets/scenes/Z0506.unity
+    guid: 62486266d64e64b419553637dc4eeae5
   m_configObjects: {}
