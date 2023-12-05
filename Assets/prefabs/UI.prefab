@@ -1937,6 +1937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7d80c326142ca4aaa167d8d1daf6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMusic: {fileID: 11400000, guid: 0649ea888b666854fae4b12f1e2ec82d, type: 2}
 --- !u!1 &3041574500353442966
 GameObject:
   m_ObjectHideFlags: 0

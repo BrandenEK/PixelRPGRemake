@@ -26,7 +26,6 @@ namespace PixelRPG.UI
         {
             Debug.Log("Save and quit to menu");
 
-            Core.LevelChanger.StoreLevelObjects();
             Core.DataSaver.SaveGame();
             ReturnToMenu();
         }

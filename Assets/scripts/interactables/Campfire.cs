@@ -40,8 +40,8 @@ namespace PixelRPG.Interactables
 
             Debug.Log("Resting at campfire");
             Core.PlayerSpawner.PlayerHealth.FillHealth();
-            Core.DataSaver.SaveGame();
             OnRestAtCampfire?.Invoke();
+            Core.DataSaver.SaveGame();
             sfx.Play();
         }
 

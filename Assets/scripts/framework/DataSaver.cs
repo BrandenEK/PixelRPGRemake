@@ -14,6 +14,9 @@ namespace PixelRPG.Framework
 
         public void SaveGame()
         {
+            // Store all pers. objects in the current scene
+            Core.LevelChanger.StoreLevelObjects();
+
             // Add save data from each persistent manager to list
             var data = new Dictionary<string, SaveData>();
             foreach (var system in Core.AllSystems)

@@ -9717,7 +9717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnOnLoad: 0
-  enemyToSpawn: {fileID: 4032379164517567179, guid: a47975f0bb57a814cbed88e69f19f984, type: 3}
+  enemyToSpawn: {fileID: 2574412229763163555, guid: 9a59d7121a9ed1e4e92b564507f5ef5f, type: 3}
   wayPoints:
   - {x: 0, y: 0}
   - {x: -5.2, y: 0}

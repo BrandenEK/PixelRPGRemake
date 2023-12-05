@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Framework;
 using PixelRPG.Input;
 using System.Collections;
@@ -11,6 +12,7 @@ namespace PixelRPG.UI
         private const float FADE_TIME = 2.5f;
 
         private CanvasGroup screen;
+        [SerializeField] MusicTrack deathMusic;
 
         private bool _acceptInput;
 
@@ -23,6 +25,7 @@ namespace PixelRPG.UI
         {
             _acceptInput = false;
             Core.InputHandler.AddInputBlock(deathBlock);
+            Core.MusicPlayer.PlayBackgroundMusic(deathMusic);
             StartCoroutine(FadeIn());
         }
 
@@ -52,6 +55,7 @@ namespace PixelRPG.UI
             if (_acceptInput && UnityEngine.Input.anyKeyDown)
             {
                 Debug.Log("Respawning...");
+                Core.DataSaver.SaveGame();
                 Core.PlayerSpawner.SpawnFromLastCampfire();
             }
         }

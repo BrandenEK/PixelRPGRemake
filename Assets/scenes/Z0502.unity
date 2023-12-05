@@ -1101,7 +1101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 594387672205595755, guid: 32a677dfb0f63a049befeac4df50b9eb, type: 3}
       propertyPath: _sceneIndex
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 594387672205595755, guid: 32a677dfb0f63a049befeac4df50b9eb, type: 3}
       propertyPath: _persistState
