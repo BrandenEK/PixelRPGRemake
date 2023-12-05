@@ -4839,6 +4839,7 @@ GameObject:
   - component: {fileID: 1670580935367181462}
   - component: {fileID: 2695916950509249136}
   - component: {fileID: 4362329541713872360}
+  - component: {fileID: 3600996037460556306}
   m_Layer: 7
   m_Name: Campfire
   m_TagString: Untagged
@@ -4922,6 +4923,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneIndex: 7
+--- !u!114 &3600996037460556306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422449879078606166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b423eed6d681ab41b560937dea5ecb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 11400000, guid: 720c66b1f9b26e442a678edfc97fea0d, type: 2}
 --- !u!1 &6703398287534683713
 GameObject:
   m_ObjectHideFlags: 0

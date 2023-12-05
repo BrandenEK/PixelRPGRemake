@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Framework;
 using PixelRPG.Persistence;
 using UnityEngine;
@@ -39,7 +40,9 @@ namespace PixelRPG.Interactables
 
             Debug.Log("Resting at campfire");
             Core.PlayerSpawner.PlayerHealth.FillHealth();
+            Core.DataSaver.SaveGame();
             OnRestAtCampfire?.Invoke();
+            sfx.Play();
         }
 
         private void ShowFire(bool start)
@@ -54,10 +57,12 @@ namespace PixelRPG.Interactables
         {
             fireSystem = transform.GetChild(1).GetComponent<ParticleSystem>();
             smokeSystem = transform.GetChild(2).GetComponent<ParticleSystem>();
+            sfx = GetComponent<SFXPlayer>();
         }
 
         private ParticleSystem fireSystem;
         private ParticleSystem smokeSystem;
+        private SFXPlayer sfx;
 
         public delegate void CampfireDelegate();
         public static event CampfireDelegate OnRestAtCampfire;

@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Damage;
 using PixelRPG.Enemy.StateMachine;
 using PixelRPG.Framework;
@@ -8,10 +9,12 @@ namespace PixelRPG.Enemy
     public class EnemyDamageArea : MonoBehaviour, IDamageable
     {
         private EnemyStateMachine stateMachine;
+        private SFXPlayer sfx;
 
         private void Start()
         {
             stateMachine = GetComponentInParent<EnemyStateMachine>();
+            sfx = GetComponent<SFXPlayer>();
         }
 
         public void TakeDamage(int amount, DamageType type)
@@ -22,6 +25,7 @@ namespace PixelRPG.Enemy
             Debug.Log("Enemy taking damage");
             Core.EnemySpawner.AddKilledEnemy(stateMachine.SpawnPoint);
             stateMachine.ChangeState(3);
+            sfx.Play();
         }
     }
 }

@@ -1,3 +1,4 @@
+using PixelRPG.Audio;
 using PixelRPG.Persistence;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace PixelRPG.Interactables
         {
             Debug.Log("Toggling lever");
             anim.SetTrigger("triggering");
+            sfx.Play();
             _active = !_active;
             OnLeverToggled?.Invoke(this, _active);
         }
@@ -38,10 +40,12 @@ namespace PixelRPG.Interactables
         private bool _active;
 
         private Animator anim;
+        private SFXPlayer sfx;
 
         private void Awake()
         {
             anim = GetComponentInChildren<Animator>();
+            sfx = GetComponent<SFXPlayer>();
         }
 
         public delegate void LeverDelegate(Lever lever, bool active);

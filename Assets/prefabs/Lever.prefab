@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4062557567058938237}
   - component: {fileID: 1042658753641095232}
   - component: {fileID: 594387672205595755}
+  - component: {fileID: 297843505774522547}
   m_Layer: 7
   m_Name: Lever
   m_TagString: Untagged
@@ -179,3 +180,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae70c01b5c51554c9ae881878786eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneIndex: 0
+  _persistState: 0
+  _singleUse: 0
+--- !u!114 &297843505774522547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482258910943263001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b423eed6d681ab41b560937dea5ecb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 11400000, guid: c0d2972a96ad0f04e82066dff9f40232, type: 2}
