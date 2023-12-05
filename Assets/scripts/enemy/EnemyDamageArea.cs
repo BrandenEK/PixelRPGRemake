@@ -11,6 +11,9 @@ namespace PixelRPG.Enemy
         private EnemyStateMachine stateMachine;
         private SFXPlayer sfx;
 
+        // Should have a separate script for health but Im just trowing it here
+        [SerializeField] int _health;
+
         private void Start()
         {
             stateMachine = GetComponentInParent<EnemyStateMachine>();
@@ -23,9 +26,17 @@ namespace PixelRPG.Enemy
                 return;
 
             Debug.Log("Enemy taking damage");
+            sfx.Play();
+
+            _health -= amount;
+            if (_health <= 0)
+                Kill();
+        }
+
+        private void Kill()
+        {
             Core.EnemySpawner.AddKilledEnemy(stateMachine.SpawnPoint);
             stateMachine.ChangeState(3);
-            sfx.Play();
         }
     }
 }

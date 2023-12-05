@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: _yOffset
       value: -0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1387733458099199585, guid: a47975f0bb57a814cbed88e69f19f984, type: 3}
+      propertyPath: _health
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1885005112824890531, guid: a47975f0bb57a814cbed88e69f19f984, type: 3}
       propertyPath: m_IsActive
       value: 1
