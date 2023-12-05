@@ -24,15 +24,20 @@ namespace PixelRPG.Enemy.StateMachine
             Orientation = GetComponentInChildren<RotateToOrientation>();
             SpawnPoint = GetComponentInParent<EnemySpawnPoint>();
 
-            _states = new BaseState[]
+            _states = RegisterStates();
+
+            ChangeState(0);
+        }
+
+        protected virtual BaseState[] RegisterStates()
+        {
+            return new BaseState[]
             {
                 new PatrollingState(this, SpawnPoint.wayPoints),
-                new ChasingState(this),
+                new ChasingState(this, true),
                 new AttackingState(this),
                 new DeadState(this),
             };
-
-            ChangeState(0);
         }
 
         private void Update() => _currentState.OnUpdate();

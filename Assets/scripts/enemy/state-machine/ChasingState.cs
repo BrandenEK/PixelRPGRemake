@@ -6,8 +6,12 @@ namespace PixelRPG.Enemy.StateMachine
     public class ChasingState : BaseState
     {
         private float _currentCooldown;
+        private readonly bool _canPatrol;
 
-        public ChasingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+        public ChasingState(EnemyStateMachine stateMachine, bool canPatrol) : base(stateMachine)
+        {
+            _canPatrol = canPatrol;
+        }
 
         public override void OnEnter()
         {
@@ -25,7 +29,7 @@ namespace PixelRPG.Enemy.StateMachine
             float distanceToPlayer = Vector2.Distance(currentPosition, playerPosition);
             _currentCooldown += Time.deltaTime;
 
-            if (distanceToPlayer > _stateMachine.data.chaseToPatrolDistance)
+            if (_canPatrol && distanceToPlayer > _stateMachine.data.chaseToPatrolDistance)
             {
                 ChangeState(0);
                 return;
