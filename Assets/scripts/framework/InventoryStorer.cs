@@ -87,10 +87,8 @@ namespace PixelRPG.Framework
             _currentKeys = 0;
         }
 
-        public delegate void WeaponDelegate(int level);
-        public static event WeaponDelegate OnWeaponUpgraded;
-
-        public delegate void ArmorDelegate(int level);
-        public static event ArmorDelegate OnArmorUpgraded;
+        public delegate void InventoryDelegate(int level);
+        public static event InventoryDelegate OnWeaponUpgraded;
+        public static event InventoryDelegate OnArmorUpgraded;
     }
 }
