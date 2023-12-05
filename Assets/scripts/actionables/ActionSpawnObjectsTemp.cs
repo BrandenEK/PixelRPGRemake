@@ -14,7 +14,7 @@ namespace PixelRPG.Actionables
             }
             foreach (var obj in _disableObjects)
             {
-                obj.SetActive(!false);
+                obj.SetActive(false);
             }
         }
 
