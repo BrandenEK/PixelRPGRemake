@@ -1,10 +1,16 @@
 using PixelRPG.Persistence;
 using UnityEngine;
 
-namespace PixelRPG
+namespace PixelRPG.Actionables
 {
-    public class SpawnObjectLeverEvent : BaseLeverEvent, IPersistentObject
+    public class ActionSpawnObjects : MonoBehaviour, IActionable, IPersistentObject
     {
+        public void Activate()
+        {
+            Debug.Log("Action: Spawning objects");
+            SetObjectStatus(true);
+        }
+
         public bool CurrentStatus
         {
             get => _spawned;
@@ -12,12 +18,6 @@ namespace PixelRPG
         }
 
         public int SceneIndex => _sceneIndex;
-
-        protected override void OnLeverToggled()
-        {
-            Debug.Log("Spawning object from lever");
-            SetObjectStatus(true);
-        }
 
         private void SetObjectStatus(bool spawn)
         {

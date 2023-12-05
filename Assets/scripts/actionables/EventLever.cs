@@ -1,17 +1,15 @@
 using PixelRPG.Interactables;
 using UnityEngine;
 
-namespace PixelRPG
+namespace PixelRPG.Actionables
 {
-    public abstract class BaseLeverEvent : MonoBehaviour
+    public class EventLever : EventBase
     {
         private void OnLeverToggled(Lever lever, bool active)
         {
             if (lever == _lever && (active || !_requireActive))
-                OnLeverToggled();
+                TriggerEvent();
         }
-
-        protected abstract void OnLeverToggled();
 
         [SerializeField] Lever _lever;
         [SerializeField] bool _requireActive;
