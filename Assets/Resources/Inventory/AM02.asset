@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 465b04915f04fc5408f81b7370046334, type: 3}
-  m_Name: AM01
+  m_Name: AM02
   m_EditorClassIdentifier: 
-  displayName: Basic Armor
-  icon: {fileID: -1824539068, guid: 29fa043e545ea74449f3475c5c2ea44f, type: 3}
+  displayName: Knight's Armor
+  icon: {fileID: 751380306, guid: 29fa043e545ea74449f3475c5c2ea44f, type: 3}
