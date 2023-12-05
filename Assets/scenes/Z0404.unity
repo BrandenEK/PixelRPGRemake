@@ -6217,6 +6217,7 @@ GameObject:
   - component: {fileID: 1428439887}
   - component: {fileID: 1428439884}
   - component: {fileID: 1428439883}
+  - component: {fileID: 1428439888}
   m_Layer: 0
   m_Name: EnemyEndBoss
   m_TagString: Untagged
@@ -6288,6 +6289,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 1766920927}
+--- !u!114 &1428439888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428439881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a76edb168ed6042a2908a5fae3fa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 11400000, guid: 2104cf6454756be4bbac0a2907443459, type: 2}
 --- !u!1 &1441183846
 GameObject:
   m_ObjectHideFlags: 0
@@ -9843,6 +9857,7 @@ GameObject:
   - component: {fileID: 1883033684}
   - component: {fileID: 1883033685}
   - component: {fileID: 1883033681}
+  - component: {fileID: 1883033686}
   m_Layer: 0
   m_Name: TriggerStartBoss
   m_TagString: Untagged
@@ -9950,6 +9965,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 1766920927}
+--- !u!114 &1883033686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883033679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a76edb168ed6042a2908a5fae3fa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 11400000, guid: e47633bfbcf4fdd40abe6a2f3a008eef, type: 2}
 --- !u!1001 &2033552580
 PrefabInstance:
   m_ObjectHideFlags: 0

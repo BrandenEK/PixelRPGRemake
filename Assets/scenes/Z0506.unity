@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 106134560}
   - component: {fileID: 106134561}
   - component: {fileID: 106134562}
+  - component: {fileID: 106134563}
   m_Layer: 0
   m_Name: EnemyEndBoss
   m_TagString: Untagged
@@ -294,6 +295,19 @@ MonoBehaviour:
   _enableObjects:
   - {fileID: 1271995406}
   _disableObjects: []
+--- !u!114 &106134563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106134558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a76edb168ed6042a2908a5fae3fa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 11400000, guid: 0aee640af6ed98b498c267a3748cf6a6, type: 2}
 --- !u!1 &135874217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,6 +3188,7 @@ GameObject:
   - component: {fileID: 431495365}
   - component: {fileID: 431495368}
   - component: {fileID: 431495369}
+  - component: {fileID: 431495370}
   m_Layer: 0
   m_Name: TriggerStartBoss
   m_TagString: Untagged
@@ -3282,6 +3297,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 52331029}
+--- !u!114 &431495370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431495363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a76edb168ed6042a2908a5fae3fa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 11400000, guid: e47633bfbcf4fdd40abe6a2f3a008eef, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -12464,6 +12492,7 @@ GameObject:
   - component: {fileID: 1948768352}
   - component: {fileID: 1948768351}
   - component: {fileID: 1948768350}
+  - component: {fileID: 1948768354}
   m_Layer: 0
   m_Name: TriggerStartBoss (1)
   m_TagString: Untagged
@@ -12572,6 +12601,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &1948768354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948768348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a76edb168ed6042a2908a5fae3fa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _music: {fileID: 11400000, guid: e47633bfbcf4fdd40abe6a2f3a008eef, type: 2}
 --- !u!1001 &2033552580
 PrefabInstance:
   m_ObjectHideFlags: 0
