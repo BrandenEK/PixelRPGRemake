@@ -14,7 +14,11 @@ namespace PixelRPG.Actionables
         public bool CurrentStatus
         {
             get => _spawned;
-            set => SetObjectStatus(value);
+            set
+            {
+                if (value)
+                    SetObjectStatus(true);
+            }
         }
 
         public int SceneIndex => _sceneIndex;

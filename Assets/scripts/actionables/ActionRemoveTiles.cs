@@ -1,10 +1,10 @@
-using PixelRPG.Actionables;
+using PixelRPG.Persistence;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace PixelRPG
+namespace PixelRPG.Actionables
 {
-    public class ActionRemoveTiles : MonoBehaviour, IActionable
+    public class ActionRemoveTiles : MonoBehaviour, IActionable, IPersistentObject
     {
         public bool CurrentStatus
         {

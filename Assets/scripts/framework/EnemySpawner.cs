@@ -36,6 +36,7 @@ namespace PixelRPG.Framework
             {
                 Debug.Log("Adding killed enemy: " +  spawnId);
                 _killedEnemies.Add(spawnId);
+                OnEnemyKilled?.Invoke(spawnPoint);
             }
         }
 
@@ -81,5 +82,8 @@ namespace PixelRPG.Framework
 
         private readonly List<GameObject> _aliveEnemies = new();
         private readonly List<string> _killedEnemies = new();
+
+        public delegate void EnemyDelegate(EnemySpawnPoint spawnPoint);
+        public static event EnemyDelegate OnEnemyKilled;
     }
 }

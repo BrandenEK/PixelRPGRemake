@@ -8,7 +8,10 @@ namespace PixelRPG.Actionables
         private void OnLeverToggled(Lever lever, bool active)
         {
             if (lever == _lever && (active || !_requireActive))
+            {
+                Debug.Log("Event: Lever toggled");
                 TriggerEvent();
+            }
         }
 
         [SerializeField] Lever _lever;
